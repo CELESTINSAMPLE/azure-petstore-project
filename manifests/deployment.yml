@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: celestinsampleazurepetstoreproject 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: celestinsampleazurepetstoreproject
+  template:
+    metadata:
+      labels:
+        app: celestinsampleazurepetstoreproject 
+    spec:
+      containers:
+        - name: celestinsampleazurepetstoreproject 
+          image: celestinpetstore.azurecr.io/celestinsampleazurepetstoreproject
+          ports:
+          - containerPort: 80
