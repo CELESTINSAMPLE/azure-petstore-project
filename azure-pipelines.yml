@@ -73,27 +73,3 @@ stages:
 - stage: Deploy
   displayName: Deploy Stage
   dependsOn: Build
-
-  jobs:
-  - deployment: Deploy
-    displayName: Deploy App
-    pool:
-      vmImage: 'ubuntu-latest'
-    environment: 'Development'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: KubernetesManifest@0
-            displayName: Deploy to Kubernetes cluster
-            inputs:
-              action: deploy
-              kubernetesServiceConnection: petstore-pet
-              namespace: pet
-              manifests: |
-                $(Pipeline.Workspace)/manifests/petstorepetservice-deployment-everything-enabled.yml
-                $(Pipeline.Workspace)/manifests/petstorepetservice-service-everything-enabled.yml
-              imagePullSecrets: |
-                $(imagePullSecret)
-              containers: |
-                $(containerRegistry)/$(imageRepository):$(tag)
