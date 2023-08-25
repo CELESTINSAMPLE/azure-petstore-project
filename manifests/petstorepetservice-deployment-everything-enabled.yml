@@ -12,12 +12,9 @@ spec:
       labels:
         app: aks-petstorepetservice
     spec:
-      nodeSelector:
-        "kubernetes.io/os": linux
-        agentpool: nodepool1
       containers:
-      - name: petstoreservice
-        image: azurepetstorecontainerregistry.azurecr.io/petstorepetservice:latest
+      - name: aks-petstorepetservice
+        image: celestinpetstore.azurecr.io/petstorepetservice:latest
         resources:
           requests:
             cpu: 250m
