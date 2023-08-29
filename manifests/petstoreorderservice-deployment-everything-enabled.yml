@@ -15,13 +15,13 @@ spec:
       containers:
       - name: aks-petstoreorderservice
         image: celestinpetstore.azurecr.io/petstoreorderservice:latest
-        resources:
-          requests:
-            cpu: 250m
-            memory: 1Gi
-          limits:
-            cpu: 500m
-            memory: 2Gi
+       # resources:
+       #   requests:
+        #    cpu: 250m
+         #   memory: 1Gi
+          #limits:
+           # cpu: 500m
+            #memory: 2Gi
         ports:
         - containerPort: 80
         env:
@@ -46,17 +46,3 @@ spec:
           #    secretKeyRef:
         #        name: subscriptionid
            #     key: secret
-
----
-apiVersion: autoscaling/v1
-kind: HorizontalPodAutoscaler
-metadata:
-  name: aks-petstoreproductservice-hpa
-spec:
-  maxReplicas: 4 # define max replica count
-  minReplicas: 1  # define min replica count
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: aks-petstoreproductservice
-  targetCPUUtilizationPercentage: 80 # target CPU utilization
