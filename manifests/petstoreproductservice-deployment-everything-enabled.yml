@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: aks-petstoreproductservice
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: aks-petstoreproductservice
@@ -27,8 +27,8 @@ spec:
         env:
           - name: PETSTOREPRODUCTSERVICE_SERVER_PORT
             value: "80"
-          - name: spring.config.name
-            value: application_with_everything_enabled
+          #- name: spring.config.name
+          #  value: application_with_everything_enabled
           - name: APPLICATIONINSIGHTS_CONNECTION_STRING
             valueFrom:
               secretKeyRef:
