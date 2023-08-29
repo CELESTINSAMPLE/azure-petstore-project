@@ -20,8 +20,8 @@ spec:
         env:
           - name: PETSTOREORDERSERVICE_SERVER_PORT
             value: "80"
-          - name: spring.config.name
-            value: application_with_everything_enabled
+          #- name: spring.config.name
+           # value: application_with_everything_enabled
           - name: APPLICATIONINSIGHTS_CONNECTION_STRING
             valueFrom:
               secretKeyRef:
