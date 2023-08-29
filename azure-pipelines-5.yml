@@ -91,8 +91,8 @@ stages:
               kubernetesServiceConnection: petstore1-petorder-1666
               namespace: petorder
               manifests: |
-                $(Pipeline.Workspace)/manifests/petstoreorderservice-deployment-everything-enabled1.yml
-                $(Pipeline.Workspace)/manifests/petstoreorderservice-service-everything-enabled1.yml
+                $(Pipeline.Workspace)/manifests/petstoreorderservice-deployment-everything-enabled.yml
+                $(Pipeline.Workspace)/manifests/petstoreorderservice-service-everything-enabled.yml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
