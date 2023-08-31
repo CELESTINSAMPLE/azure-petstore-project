@@ -90,7 +90,7 @@ stages:
             inputs:
               action: deploy
               kubernetesServiceConnection: petstore-petservice-1847
-              namespace: pet
+              namespace: petservice
               manifests: |
                 $(Pipeline.Workspace)/manifests/petstorepetservice-deployment-everything-enabled.yml
                 $(Pipeline.Workspace)/manifests/petstorepetservice-service-everything-enabled.yml
